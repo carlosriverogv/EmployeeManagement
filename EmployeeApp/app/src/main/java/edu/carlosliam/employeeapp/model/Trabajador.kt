@@ -1,14 +1,16 @@
 package edu.carlosliam.employeeapp.model
 
 
+import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "trabajador")
 data class Trabajador(
     @SerializedName("apellidos")
     val apellidos: String,
     @SerializedName("contraseña")
-    val password: String,
+    val contraseña: String,
     @SerializedName("dni")
     val dni: String,
     @SerializedName("email")
@@ -18,7 +20,5 @@ data class Trabajador(
     @SerializedName("idTrabajador")
     @PrimaryKey val idTrabajador: String,
     @SerializedName("nombre")
-    val nombre: String,
-    @SerializedName("trabajos")
-    val trabajos: List<Trabajo>?
+    val nombre: String
 )
