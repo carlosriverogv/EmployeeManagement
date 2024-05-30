@@ -7,10 +7,18 @@
     <string name="txt_work_cod">ID</string>
     <string name="txt_work_description">Descripción</string>
     <string name="txt_prioridad">Prioridad: $s</string>
+    <string name="detail_subtitle">Detalle del trabajo</string>
+    <string name="txt_finalizar_tarea">Finalizar tarea</string>
 
     <!-- Prioridades -->
     <string name="txt_prioridad_urgente">Urgente</string>
     <string name="txt_prioridad_alta">Alta</string>
     <string name="txt_prioridad_media">Media</string>
     <string name="txt_prioridad_baja">Baja</string>
+    <string name="txt_prioridad_sin_prioridad">Sin prioridad</string>
+
+    <!-- Detalle del trabajo -->
+    <string name="txt_codTrab">(Cod: %1$s)</string>
+    <string name="txt_prioridad_detalle">&lt;b>Prioridad:&lt;/b> %1$s</string>
+    <string name="txt_fecha_inicio">&lt;b>Fecha de inicio:&lt;/b> %1$s</string>
 </resources>
