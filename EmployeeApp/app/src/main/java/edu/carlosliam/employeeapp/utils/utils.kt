@@ -1,6 +1,9 @@
 package edu.carlosliam.employeeapp.utils
 
 import edu.carlosliam.employeeapp.model.Trabajador
+import edu.carlosliam.employeeapp.model.Trabajo
+
+val trabajoList: MutableList<Trabajo> = mutableListOf()
 
 val currentTrabajador: Trabajador = Trabajador(
     "Rivero García-Valenciano",
