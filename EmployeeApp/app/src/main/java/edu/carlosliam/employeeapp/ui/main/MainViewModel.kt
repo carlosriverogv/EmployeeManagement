@@ -21,10 +21,22 @@ class MainViewModel(val repository: Repository): ViewModel() {
         Log.d("MainViewModel", "fetchTrabajos() llamado")
         viewModelScope.launch {
             try {
-                _currentsTrabajos = repository.fetchTrabajos()
+
                 Log.d("MainViewModel", "Datos de trabajos obtenidos correctamente")
             } catch (e: Exception) {
                 Log.e("MainViewModel", "Error al obtener datos de trabajos: ${e.message}")
+            }
+        }
+    }
+
+    fun fetchTrabajosPendientes() {
+        Log.d("MainViewModel", "fetchTrabajosPendientes() llamado")
+        viewModelScope.launch {
+            try {
+                _currentsTrabajos = repository.fetchTrabajosPendientes()
+                Log.d("MainViewModel", "Datos de trabajos pendientes obtenidos correctamente")
+            } catch (e: Exception) {
+                Log.e("MainViewModel", "Error al obtener datos de trabajos pendientes: ${e.message}")
             }
         }
     }

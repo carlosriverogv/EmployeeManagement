@@ -63,4 +63,10 @@
     <color name="md_theme_dark_surfaceTint">#54D7F3</color>
     <color name="md_theme_dark_outlineVariant">#3F484B</color>
     <color name="md_theme_dark_scrim">#000000</color>
+
+    <!-- Prioridades -->
+    <color name="md_theme_dark_prioridad_urgente">#FF0000</color>
+    <color name="md_theme_dark_prioridad_alta">#FFA500</color>
+    <color name="md_theme_dark_prioridad_media">#FFFF00</color>
+    <color name="md_theme_dark_prioridad_baja">#008000</color>
 </resources>

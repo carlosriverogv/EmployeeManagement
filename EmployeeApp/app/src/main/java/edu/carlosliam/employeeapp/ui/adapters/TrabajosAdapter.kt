@@ -34,14 +34,26 @@ class TrabajosAdapter(
         fun bind(trabajo: Trabajo) {
             binding.tvCod.text = trabajo.codTrab
             binding.tvDescription.text = trabajo.descripcion
+            binding.tvFecIni.text = trabajo.fecIni
 
             when (trabajo.prioridad) {
-                1 -> binding.tvPrioridad.text
-                2 -> binding.tvPrioridad.text
-                3 -> binding.tvPrioridad.text
-                4 -> binding.tvPrioridad.text 
+                1 -> {
+                    binding.tvPrioridad.setTextColor(binding.root.context.getColor(R.color.md_theme_dark_prioridad_urgente))
+                    binding.tvPrioridad.text = binding.root.context.getString(R.string.txt_prioridad_urgente)
+                }
+                2 -> {
+                    binding.tvPrioridad.setTextColor(binding.root.context.getColor(R.color.md_theme_dark_prioridad_alta))
+                    binding.tvPrioridad.text = binding.root.context.getString(R.string.txt_prioridad_alta)
+                }
+                3 -> {
+                    binding.tvPrioridad.setTextColor(binding.root.context.getColor(R.color.md_theme_dark_prioridad_media))
+                    binding.tvPrioridad.text = binding.root.context.getString(R.string.txt_prioridad_media)
+                }
+                4 -> {
+                    binding.tvPrioridad.setTextColor(binding.root.context.getColor(R.color.md_theme_dark_prioridad_baja))
+                    binding.tvPrioridad.text = binding.root.context.getString(R.string.txt_prioridad_baja)
+                }
             }
-
         }
     }
 }

@@ -65,15 +65,15 @@ interface SpringAPIInterface {
 
 
     @PUT("trabajos/{trabajoId}/finalizar/{actualDate}")
-    suspend fun finalizarTrabajo(@Path("trabajoId") trabajoId:Int, @Path("actualDate") actualDate:String): Trabajos
+    suspend fun finalizarTrabajo(@Path("trabajoId") trabajoId:String, @Path("actualDate") actualDate:String): Trabajos
 
     // Servicios de trabajadores
     @GET("trabajadores/{id}")
-    suspend fun getTrabajadorById(@Path("id") id:Int): Trabajador
+    suspend fun getTrabajadorById(@Path("id") id:String): Trabajador
 
     @GET("trabajadores/{id}/{pass}/pendientes")
-    suspend fun getTrabajosPendientesByTrabajadorLogin(@Path("id") id:Int, @Path("pass") pass:String): List<Trabajos>
+    suspend fun getTrabajosPendientesByTrabajadorLogin(@Path("id") id:String, @Path("pass") pass:String): Trabajos
 
     @GET("trabajadores/{id}/{pass}/finalizados")
-    suspend fun getTrabajosFinalizadosByTrabajadorLogin(@Path("id") id:Int, @Path("pass") pass:String): List<Trabajos>
+    suspend fun getTrabajosFinalizadosByTrabajadorLogin(@Path("id") id:String, @Path("pass") pass:String): Trabajos
 }

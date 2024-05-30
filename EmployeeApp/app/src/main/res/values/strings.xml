@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Employee App</string>
-    <string name="txt_optBottom_all">Todas</string>
-    <string name="txt_favorites">Favoritas</string>
+    <string name="txt_pendientes">Pendientes</string>
+    <string name="txt_finalizados">Finalizados</string>
     <string name="txt_noConnection">No hay conexión a Internet</string>
-    <string name="txt_opt_sort">Orden alfabético</string>
+    <string name="txt_fec_inicio">Inicio</string>
     <string name="txt_work_cod">ID</string>
     <string name="txt_work_description">Descripción</string>
-    <string name="txt_prioridad">Prioridad: $s</string>
+    <string name="txt_prioridad">Prioridad</string>
     <string name="detail_subtitle">Detalle del trabajo</string>
     <string name="txt_finalizar_tarea">Finalizar tarea</string>
 

@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         trabajosAdapter.submitList(null)
 
         lifecycleScope.launch {
-            vm.fetchTrabajos()
+            vm.fetchTrabajosPendientes()
             Log.e("Prueba", "Estoy")
             vm.currentTrabajos.catch {
                 Log.e("MainAct1", "Error al obtener trabajos: ${it.message}")

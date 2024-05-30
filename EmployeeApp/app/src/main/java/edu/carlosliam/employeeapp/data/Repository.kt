@@ -9,11 +9,22 @@ class Repository(db: SpringRoomDB, val ds: RemoteDataSource) {
     val TAG = Repository::class.java.simpleName
     private val localDataSource = LocalDataSource(db.trabajoDao())
 
-    val currentTrabajos: Flow<Trabajos> = ds.getTrabajos()
+    val currentTrabajos: Flow<Trabajos> = ds.getTrabajosPendientesLogin()
 
     fun fetchTrabajos(): Flow<Trabajos> {
         try {
             val trabajos = ds.getTrabajos()
+            Log.d(TAG, "Datos obtenidos correctamente: $trabajos")
+            return trabajos
+        } catch (e: Exception) {
+            Log.e(TAG, "Error al obtener datos: ${e.message}")
+            throw e
+        }
+    }
+
+    fun fetchTrabajosPendientes(): Flow<Trabajos> {
+        try {
+            val trabajos = ds.getTrabajosPendientesLogin()
             Log.d(TAG, "Datos obtenidos correctamente: $trabajos")
             return trabajos
         } catch (e: Exception) {
