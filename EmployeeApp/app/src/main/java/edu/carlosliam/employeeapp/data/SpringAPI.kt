@@ -11,7 +11,7 @@ import retrofit2.http.Path
 
 class SpringAPI {
     companion object {
-        const val BASE_URL = "http://192.168.1.69:8080/api/"
+        const val BASE_URL = "http://10.0.2.2:8080/api/"
 
         fun getRetrofit2Api(): SpringAPIInterface {
             val retrofit = Retrofit.Builder()
