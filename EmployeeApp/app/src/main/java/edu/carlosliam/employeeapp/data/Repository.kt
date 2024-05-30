@@ -3,7 +3,6 @@ package edu.carlosliam.employeeapp.data
 import android.util.Log
 import edu.carlosliam.employeeapp.model.Trabajos
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 
 class Repository(db: SpringRoomDB, val ds: RemoteDataSource) {
     val TAG = Repository::class.java.simpleName
@@ -11,9 +10,9 @@ class Repository(db: SpringRoomDB, val ds: RemoteDataSource) {
 
     val currentTrabajos: Flow<Trabajos> = ds.getTrabajosPendientesLogin()
 
-    fun fetchTrabajos(): Flow<Trabajos> {
+    fun fetchTrabajosPendientes(): Flow<Trabajos> {
         try {
-            val trabajos = ds.getTrabajos()
+            val trabajos = ds.getTrabajosPendientesLogin()
             Log.d(TAG, "Datos obtenidos correctamente: $trabajos")
             return trabajos
         } catch (e: Exception) {
@@ -22,9 +21,9 @@ class Repository(db: SpringRoomDB, val ds: RemoteDataSource) {
         }
     }
 
-    fun fetchTrabajosPendientes(): Flow<Trabajos> {
+    fun fetchTrabajosFinalizados(): Flow<Trabajos> {
         try {
-            val trabajos = ds.getTrabajosPendientesLogin()
+            val trabajos = ds.getTrabajosFinalizadosLogin()
             Log.d(TAG, "Datos obtenidos correctamente: $trabajos")
             return trabajos
         } catch (e: Exception) {

@@ -7,22 +7,20 @@ import edu.carlosliam.employeeapp.utils.currentTrabajador
 class RemoteDataSource {
     private val api = SpringAPI.getRetrofit2Api()
 
-    /*suspend fun getTrabajos(): List<Trabajo> = api.getTrabajos()^*/
-
-    fun getTrabajos() = flow {
+    fun getTrabajosPendientesLogin() = flow {
         try {
-            val trabajos = api.getTrabajos()
+            val trabajos = api.getTrabajosPendientesByTrabajadorLogin(currentTrabajador.idTrabajador, currentTrabajador.contraseña)
             emit(trabajos)
-            Log.d("RemoteDataSource", "Datos obtenidos correctamente: $trabajos")
+            Log.d("RemoteDataSource", "Datos obtenidos correctamente 2: $trabajos")
         } catch (e: Exception) {
-            Log.e("RemoteDataSource", "Error al obtener datos: ${e.message}")
+            Log.e("RemoteDataSource", "Error al obtener datos 2: ${e.message}")
             throw e
         }
     }
 
-    fun getTrabajosPendientesLogin() = flow {
+    fun getTrabajosFinalizadosLogin() = flow {
         try {
-            val trabajos = api.getTrabajosPendientesByTrabajadorLogin(currentTrabajador.idTrabajador, currentTrabajador.contraseña)
+            val trabajos = api.getTrabajosFinalizadosByTrabajadorLogin(currentTrabajador.idTrabajador, currentTrabajador.contraseña)
             emit(trabajos)
             Log.d("RemoteDataSource", "Datos obtenidos correctamente 2: $trabajos")
         } catch (e: Exception) {

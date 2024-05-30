@@ -30,12 +30,6 @@ interface SpringAPIInterface {
 
     // Servicios de trabajos
 
-    @GET("trabajos")
-    suspend fun getTrabajos(): Trabajos
-
-    @GET("trabajos/{id}")
-    suspend fun getTrabajoById(@Path("id") id:Int): Trabajos
-
     /*
      * Servicio para obtener un listado de trabajos pendientes ordenados por prioridad
      * de un trabajador pasado por parámetro
@@ -57,20 +51,11 @@ interface SpringAPIInterface {
     @GET("trabajos/{trabajadorId}/prioridad/{prioridad}")
     suspend fun getTrabajosByPrioridad(@Path("trabajadorId") trabajadorId:Int, @Path("prioridad") prioridad:Int): List<Trabajos>
 
-    @GET("trabajos/pendientes")
-    suspend fun getTrabajosPendientes(): List<Trabajos>
-
-    @GET("trabajos/finalizados")
-    suspend fun getTrabajosFinalizados(): List<Trabajos>
-
 
     @PUT("trabajos/{trabajoId}/finalizar/{actualDate}")
     suspend fun finalizarTrabajo(@Path("trabajoId") trabajoId:String, @Path("actualDate") actualDate:String): Trabajos
 
     // Servicios de trabajadores
-    @GET("trabajadores/{id}")
-    suspend fun getTrabajadorById(@Path("id") id:String): Trabajador
-
     @GET("trabajadores/{id}/{pass}/pendientes")
     suspend fun getTrabajosPendientesByTrabajadorLogin(@Path("id") id:String, @Path("pass") pass:String): Trabajos
 
