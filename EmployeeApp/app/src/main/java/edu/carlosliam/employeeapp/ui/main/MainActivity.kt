@@ -39,6 +39,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.mToolbar.inflateMenu(R.menu.menu)
+
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_NOSENSOR
 
         binding.recyclerView.setHasFixedSize(true)
