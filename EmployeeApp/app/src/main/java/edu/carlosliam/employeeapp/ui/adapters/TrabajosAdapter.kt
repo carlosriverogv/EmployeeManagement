@@ -12,7 +12,7 @@ import edu.carlosliam.employeeapp.databinding.TrabajoItemBinding
 import edu.carlosliam.employeeapp.model.Trabajo
 
 class TrabajosAdapter(
-
+    private val listenerDetail: (Trabajo) -> Unit
 ) : ListAdapter<Trabajo, TrabajosAdapter.TrabajoViewHolder>(TrabajoDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrabajoViewHolder {
         return TrabajoViewHolder(
@@ -53,6 +53,10 @@ class TrabajosAdapter(
                     binding.tvPrioridad.setTextColor(binding.root.context.getColor(R.color.md_theme_dark_prioridad_baja))
                     binding.tvPrioridad.text = binding.root.context.getString(R.string.txt_prioridad_baja)
                 }
+            }
+
+            itemView.setOnClickListener {
+                listenerDetail(trabajo)
             }
         }
     }

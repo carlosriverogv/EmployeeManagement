@@ -16,12 +16,13 @@ import edu.carlosliam.employeeapp.data.Repository
 import edu.carlosliam.employeeapp.databinding.ActivityMainBinding
 import edu.carlosliam.employeeapp.model.Trabajo
 import edu.carlosliam.employeeapp.ui.adapters.TrabajosAdapter
+import edu.carlosliam.employeeapp.ui.detail.DetailTrabajoActivity
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
+import edu.carlosliam.employeeapp.utils.trabajoList
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    val trabajoList: MutableList<Trabajo> = mutableListOf()
 
     private val vm: MainViewModel by viewModels {
         val db = (application as SpringApplication).springDB
@@ -30,7 +31,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val trabajosAdapter by lazy {
-        TrabajosAdapter()
+        TrabajosAdapter(listenerDetail = {
+            DetailTrabajoActivity.navigate(this, it.codTrab)
+        })
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,6 +73,7 @@ class MainActivity : AppCompatActivity() {
                 Log.e("MainAct1", "Error al obtener trabajos: ${it.message}")
             }.collect {
                 trabajosAdapter.submitList(it.result)
+                trabajoList.addAll(it.result)
                 Log.e("MainAct1", "Entra:")
                 binding.swipeRefresh.isRefreshing = false
             }
