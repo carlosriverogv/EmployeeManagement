@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.text.Html
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import edu.carlosliam.employeeapp.R
 import edu.carlosliam.employeeapp.databinding.ActivityTrabajoDetailBinding
@@ -33,9 +34,10 @@ class DetailTrabajoActivity : AppCompatActivity() {
         // Bloqueo de la rotación
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_NOSENSOR
 
-        if (intent.getIntExtra(TRABAJO_ID, 0) > 0) {
+        if (intent.getStringExtra(TRABAJO_ID)!!.isNotEmpty()) {
             // Se obtiene el episodio seleccionado de la lista de episodios.
             val trabajo = trabajoList.find { it.codTrab.equals(intent.getStringExtra(TRABAJO_ID)) }
+            Log.d("Detail", if (trabajo != null) trabajo.toString() else "No encontrado")
 
             binding.tvDescripcion.text = trabajo?.descripcion
             binding.tvCategoria.text = trabajo?.categoria
